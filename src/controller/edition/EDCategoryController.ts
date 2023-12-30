@@ -1,16 +1,15 @@
 import { Request, Response } from 'express';
-import Error from 'http-errors';
 import { StatusCodes } from 'http-status-codes';
 
-class ACUserController {
+class EDCategoryController {
   constructor() {}
 
-  async getUser(req: Request, res: Response) {
+  async getAllCategories(req: Request, res: Response) {
     res.status(StatusCodes.OK).json({
       status: 'success',
-      message: 'hello from typescript :)',
+      message: 'all categories by express',
     });
   }
 }
 
-export = new ACUserController();
+export = new EDCategoryController();
