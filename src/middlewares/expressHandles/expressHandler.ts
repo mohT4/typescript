@@ -5,7 +5,7 @@ const expressHandler =
   (handler: (req: Request) => Promise<any>) =>
   async (req: Request, res: Response) => {
     const response = await handler(req);
-    !response ? res.status(StatusCodes.NO_CONTENT).send : res.json(response);
+    !response ? res.status(StatusCodes.NO_CONTENT).send() : res.json(response);
   };
 
 export = expressHandler;
