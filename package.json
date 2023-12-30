@@ -2,11 +2,13 @@
   "name": "typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
     "predev": "npm run build",
-    "dev": "tsc -w & nodemon dist/index.js"
+    "dev": "npx tsc -w & nodemon dist/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,8 @@
     "@types/node": "^20.10.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "http-status-codes": "^2.3.0",
     "mongoose": "^8.0.3",
     "rimraf": "^5.0.5"
   },

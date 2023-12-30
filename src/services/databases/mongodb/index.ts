@@ -1,4 +1,4 @@
-import mongoose, { Connection, Mongoose } from 'mongoose';
+import mongoose, { Connection } from 'mongoose';
 import EventEmitter from 'events';
 
 const options = {
