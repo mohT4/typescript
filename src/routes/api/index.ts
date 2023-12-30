@@ -1,5 +1,6 @@
 import express, { Request, Response, Express } from 'express';
 import asyncHandler from 'express-async-handler';
+import expressHandler from '../../middlewares/expressHandles/expressHandler';
 import fs from 'fs';
 
 const router = express.Router();
@@ -33,7 +34,10 @@ const generateApiRoutes = (dir: string) => {
         const __path = `${dir}/${[__fileName]}`.replace(dirName, '.');
 
         const { handler } = require(__path);
-        (router as any)[method](requestUrl, handler);
+        (router as any)[method](
+          requestUrl,
+          asyncHandler(expressHandler(handler))
+        );
       }
     }
   });

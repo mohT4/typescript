@@ -1,15 +1,12 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import EDCategory from '../../model/category/ed-category';
 
 class EDCategoryController {
-  constructor() {}
-
-  async getAllCategories(req: Request, res: Response) {
-    res.status(StatusCodes.OK).json({
-      status: 'success',
-      message: 'all categories by express',
-    });
+  Model: typeof EDCategory;
+  constructor(Model: typeof EDCategory) {
+    this.Model = Model;
   }
 }
 
-export = new EDCategoryController();
+export = new EDCategoryController(EDCategory);
